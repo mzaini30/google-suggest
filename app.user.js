@@ -6,7 +6,7 @@
 // @description Tools yang akan memudahkan untuk mencatat suggest Google
 // @homepage    https://www.mainkode.my.id/
 // @downloadURL https://github.com/mzaini30/google-suggest/raw/master/app.user.js
-// @include     https://www.google.com/search?q=*
+// @include     https://www.google.com/search*
 // @run-at      document-end
 // @grant       GM_listValues
 // @grant       GM_setValue
@@ -80,7 +80,7 @@ function olah_suggest() {
 		let data = []
 
 		if (suggest.length > 0) {
-			suggest.forEach(x => data = [...data, x.innerText.replace(/\n.+/, '').replace('Remove', '')])
+			suggest.forEach(x => data = [...data, x.querySelector('.wM6W7d').innerText])
 			const hasil = data.join('\n')
 			document.querySelector('.kotak textarea').value = hasil
 		}
