@@ -50,6 +50,7 @@ elemen_baru.innerHTML = escapeHTMLPolicy.createHTML(`
 		  font-family: sans-serif;
 		  padding: 2px;
 		  background: yellow;
+		  color: black;
 		}
 		.kotak textarea {
 		  width: 140px;
@@ -79,7 +80,7 @@ function olah_suggest() {
 		let data = []
 
 		if (suggest.length > 0) {
-			suggest.forEach(x => data = [...data, x.innerText.replace(/\n.+/, '')])
+			suggest.forEach(x => data = [...data, x.innerText.replace(/\n.+/, '').replace('Remove', '')])
 			const hasil = data.join('\n')
 			document.querySelector('.kotak textarea').value = hasil
 		}
